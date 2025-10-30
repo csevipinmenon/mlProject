@@ -3,4 +3,5 @@ pandas
 seaborn
 xgboost
 Flask
+matplotlib
 -e .
