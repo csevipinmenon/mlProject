@@ -5,6 +5,7 @@ from src.exception import CustomException
 from src.logger import logger
 from dataclasses import dataclass
 from sklearn.model_selection import train_test_split
+from src.components.data_transformation import Datatransformation
 
 @dataclass
 class DataInjectionConfig:
@@ -45,4 +46,5 @@ class DataInjection:
 
 if __name__=="__main__":
     obj = DataInjection()
-    obj.initiate_data_injection()
+    train_path,test_path = obj.initiate_data_injection()
+    train_arr,test_arr,preprocessor_ob_file_path = Datatransformation().initiate_data_transformation(train_path,test_path)
