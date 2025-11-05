@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | Student Exam Performance Indicator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding: 20px;
+      background: linear-gradient(-45deg, #ff4b2b, #ff416c, #0072ff, #00c6ff);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-weight: 600;
+      font-size: 1.8rem;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+
+    .content {
+      margin-top: 120px;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 750px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      color: #fff;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #ffeb3b, #00e5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      color: #f8f9fa;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      background: linear-gradient(90deg, #ff512f, #dd2476);
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.4s ease;
+      box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+    }
+
+    .btn:hover {
+      background: linear-gradient(90deg, #24c6dc, #514a9d);
+      box-shadow: 0 5px 20px rgba(0, 198, 255, 0.6);
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #fff;
+      opacity: 0.85;
+    }
+
+    footer span {
+      color: #ffeb3b;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .content {
+        padding: 25px;
+      }
+      h1 {
+        font-size: 1.4rem;
+      }
+      h2 {
+        font-size: 1.3rem;
+      }
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Student Exam Performance Indicator</h1>
+  </header>
+
+  <div class="content">
+    <h2>About the Project</h2>
+    <p>
+      The <strong>Student Exam Performance Indicator</strong> is a machine learning–based web application
+      that predicts a student’s <strong>Math score</strong> based on various factors such as gender, ethnicity,
+      parental education level, lunch type, test preparation course, and reading & writing scores.
+    </p>
+    <p>
+      This project helps educators and analysts understand how socio-academic factors influence student
+      performance. It shows how <strong>data science</strong> and <strong>machine learning</strong> can create
+      predictive insights in education.
+    </p>
+    <p>
+      The model is trained in <strong>Python</strong> using <strong>scikit-learn</strong> and integrated with
+      <strong>Flask</strong> to provide an interactive and real-time prediction experience.
+    </p>
+
+    <a href="{{ url_for('predict_datapoint') }}" class="btn"> Try the Predictor</a>
+  </div>
+
+  <footer>
+    © <span id="year"></span> Student Exam Performance Project | Created by <span>Vipin Kumar</span>
+  </footer>
+
+  <script>
+   
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
